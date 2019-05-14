@@ -1,0 +1,23 @@
+#!/usr/bin/perl
+
+use feature qw(say);
+use Getopt::Long;
+use Data::Dumper;
+use strict;
+
+my ( $help );
+
+GetOptions(
+    #    "type=s", \$type,
+    #    "path=s", \$path,
+    #    "next=s", \$next,
+    "help", \$help
+);
+
+if ( $help ) {
+    usage();
+    exit();
+}
+
+my $cmd = "lsof -i :$ARGV[0]";
+system($cmd);
